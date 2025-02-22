@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CoffeeShop</string>
+    <string name="insert_data">INSERT DATA</string>
+    <string name="fetch_data">FETCH DATA</string>
+    <string name="hint_drink">Enter drink name</string>
+    <string name="hint_type">Enter type</string>
+    <string name="hint_price">Enter price</string>
+    <string name="save_date">SAVE DATA</string>
+    <string name="insert_drink_title">NEW DRINK</string>
+</resources>
