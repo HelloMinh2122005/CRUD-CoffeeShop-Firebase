@@ -10,4 +10,12 @@
     <string name="card_title">Drink Title</string>
     <string name="card_description">Drink Description</string>
 
+    <string name="drink_id">Drink ID</string>
+    <string name="drink_name">Drink Name</string>
+    <string name="drink_type">Drink Type</string>
+    <string name="drink_price">Drink Price</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="drink_detail_title">Drink Detail</string>
+
 </resources>

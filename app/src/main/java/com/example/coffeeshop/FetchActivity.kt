@@ -1,5 +1,6 @@
 package com.example.coffeeshop
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -59,6 +60,17 @@ class FetchActivity : AppCompatActivity() {
                     binding.rvDrink.adapter = mAdapter
                     binding.rvDrink.visibility = View.VISIBLE
                     binding.loadingData.visibility = View.GONE
+
+                    mAdapter.setOnItemClickListener(object : DrinkAdapter.onItemClickListener {
+                        override fun onItemClick(position: Int) {
+                            val intent = Intent(this@FetchActivity, DrinkDetailActivity::class.java)
+                            intent.putExtra("drinkId", list[position].drinkId)
+                            intent.putExtra("drinkName", list[position].drinkName)
+                            intent.putExtra("drinkType", list[position].drinkType)
+                            intent.putExtra("drinkPrice", list[position].drinkPrice)
+                            startActivity(intent)
+                        }
+                    })
                 }
             }
 

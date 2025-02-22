@@ -8,12 +8,26 @@ import com.example.coffeeshop.databinding.EmptyListItemBinding
 
 // bai 16: adapter
 
-class DrinkAdapter(private val list: ArrayList<DrinkModel>) :
-    RecyclerView.Adapter<DrinkAdapter.DrinkViewHolder>() {
+class DrinkAdapter(private val list: ArrayList<DrinkModel>) : RecyclerView.Adapter<DrinkAdapter.DrinkViewHolder>() {
+
+    private lateinit var mListener: onItemClickListener
+
+    interface onItemClickListener {
+        fun onItemClick(position: Int)
+    }
+
+    fun setOnItemClickListener(clickListener: onItemClickListener) {
+        mListener = clickListener
+    }
 
     // ViewHolder giữ tham chiếu binding thay vì View
-    inner class DrinkViewHolder(val binding: EmptyListItemBinding) :
-        RecyclerView.ViewHolder(binding.root)
+    inner class DrinkViewHolder(val binding: EmptyListItemBinding, clickListener: onItemClickListener) : RecyclerView.ViewHolder(binding.root) {
+        init {
+            itemView.setOnClickListener {
+                clickListener.onItemClick(adapterPosition)
+            }
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DrinkViewHolder {
         // Chỉ inflate layout 1 lần bằng View Binding
@@ -22,7 +36,7 @@ class DrinkAdapter(private val list: ArrayList<DrinkModel>) :
             parent,
             false
         )
-        return DrinkViewHolder(binding)
+        return DrinkViewHolder(binding, mListener)
     }
 
     override fun onBindViewHolder(holder: DrinkViewHolder, position: Int) {
