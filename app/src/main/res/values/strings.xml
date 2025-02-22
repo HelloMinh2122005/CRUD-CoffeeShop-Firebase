@@ -7,4 +7,7 @@
     <string name="hint_price">Enter price</string>
     <string name="save_date">SAVE DATA</string>
     <string name="insert_drink_title">NEW DRINK</string>
+    <string name="card_title">Drink Title</string>
+    <string name="card_description">Drink Description</string>
+
 </resources>

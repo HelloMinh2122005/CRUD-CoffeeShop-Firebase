@@ -38,5 +38,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, InsertActivity::class.java)
             startActivity(intent)
         }
+
+        binding.fetchData.setOnClickListener {
+            val intent = Intent(this, FetchActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
